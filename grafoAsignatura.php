@@ -1,5 +1,6 @@
 <?php
 include("verticeAsignatura.php");
+include ("listaSimpleDeAsignaturas.php");
 Class Grafo{
 
 
@@ -118,26 +119,26 @@ Class Grafo{
 
 		}
 
-		/*public function visitadosFalse(){
-			foreach ($this->vectorV as $key => $value) {
-				$this->getvertice($key)->setVisitado(false);
-			}
-		}
-
-		public function recorrerAnchura($nodo){
-			$this->visitadosFalse();
-			if($nodo != null){
-				$cola = new SplStack();
-				$cola->add($nodo);
-				while (count($cola) > 0) {
-					$nodoV = $cola->pop();
-					if($nodoV->getVisitado()==false){
-						$nodoV->setVisitado(true);
-
+		public function getVerticesEntrada($nodo){
+			$verticesDeEntrada = array();
+			if ($this->matrizA != null){
+				foreach ($this->matrizA as $vp => $adya) {
+					if($adya !=null){
+						foreach ($adya as $de => $pe) {
+							if($de == $nodo){
+								$verticesDeEntrada[] = $vp;
+							}
+						}
 					}
 				}
 			}
-		}*/
+
+			return $verticesDeEntrada;
+		}
+
+		public function puedeCursar($materia, $materiasCursadas){
+
+		}
 
 }
 ?>
